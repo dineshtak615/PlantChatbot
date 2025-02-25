@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.message {
+  @apply mb-4 p-4 rounded-lg max-w-[80%];
+}
+
+.user-message {
+  @apply bg-blue-100 ml-auto;
+}
+
+.bot-message {
+  @apply bg-gray-100;
+}
+
+.message img {
+  @apply max-w-full rounded-lg mt-2;
+}
