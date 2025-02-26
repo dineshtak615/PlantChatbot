@@ -45,7 +45,7 @@ let currentImage = null;
 // Add message to chat
 function addMessage(content, isUser = false, imageUrl = null) {
   const messageDiv = document.createElement('div');
-  messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+  messageDiv.className = message ${isUser ? 'user-message' : 'bot-message'};
   
   try {
     if (imageUrl) {
@@ -97,7 +97,7 @@ async function fileToGenerativePart(file) {
           }
         });
       } catch (error) {
-        reject(new Error(`Failed to process image: ${error.message}`));
+        reject(new Error(Failed to process image: ${error.message}));
       }
     };
     reader.onerror = () => reject(new Error('Failed to read file'));
@@ -143,7 +143,7 @@ async function handleSend() {
     
     if (currentImage) {
       // If there's an image, use Gemini Vision
-      const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const imagePart = await fileToGenerativePart(imageUpload.files[0]);
       if (!imagePart) {
         throw new Error('Failed to process image');
@@ -153,7 +153,7 @@ async function handleSend() {
       result = await model.generateContent([prompt, imagePart]);
     } else {
       // Text-only chat using Gemini Pro
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       result = await model.generateContent(message);
     }
 
